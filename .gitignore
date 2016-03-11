@@ -1,0 +1,22 @@
+# User-specific stuff:
+.idea/*
+
+## File-based project format:
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+Spray/.idea/
+Spray/target/streams/
+Spray/target/specs2-reports/
+Spray/target/
+Spray/project/target/
+Spray/project/project/
