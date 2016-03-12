@@ -1,11 +1,8 @@
+import akka.actor._
+
 /**
   * Created by Nadler on 3/12/2016.
   */
-
-import akka.actor._
-
-
-
 object Main {
   def main(args: Array[String]) = {
     if (args.length == 0) {
@@ -17,8 +14,8 @@ object Main {
     println("FileName = " + args(0))
 
     val system = ActorSystem("HelloSystem")
-    val urlReaderActor = system.actorOf(Props[FileReaderActor], name = "urlReaderActor")
-    urlReaderActor ! fileName
+    val fileReaderActor = system.actorOf(Props[FileReaderActor], name = "fileReaderActor")
+    fileReaderActor ! fileName
   }
 }
 

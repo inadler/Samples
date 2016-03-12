@@ -19,7 +19,7 @@ class FileWriterActor(fileName : String) extends Actor {
       writer = new BufferedWriter(new FileWriter(file))
 
       for (word <- wordCount.asInstanceOf[ scala.collection.mutable.Map[String,Int]]) {
-        writer.write(word._1 + "," + word._2 + "\n")
+        writer.write(word._1 + " " + word._2 + "\n")
       }
     } catch {
       case ex: FileNotFoundException => ex.printStackTrace()
