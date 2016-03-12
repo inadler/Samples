@@ -8,16 +8,19 @@ import akka.actor.Actor
 class FileWriterActor(fileName : String) extends Actor {
 
   def receive = {
-    case count: Long => writeToFile(fileName, count.toString)
+    case wordCount => writeToFile(fileName, wordCount)
   }
 
-  private def writeToFile(fileName: String, text: String) = {
+  private def writeToFile(fileName: String, wordCount: Any) = {
     var writer: Writer = null
 
     try {
       val file = new File(fileName)
       writer = new BufferedWriter(new FileWriter(file))
-      writer.write(text)
+
+      for (word <- wordCount.asInstanceOf[ scala.collection.mutable.Map[String,Int]]) {
+        writer.write(word._1 + "," + word._2 + "\n")
+      }
     } catch {
       case ex: FileNotFoundException => ex.printStackTrace()
       case ex: IOException => ex.printStackTrace()
