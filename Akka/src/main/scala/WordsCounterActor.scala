@@ -12,7 +12,7 @@ class WordsCounterActor() extends Actor {
       val wordCount = wordCounter(text)
       log.info("There are " + wordCount + " words in this article")
 
-      val wordsCounterNotifierActor = context.system.actorOf(Props(new WordsCounterNotifierActor("result.txt")), name = "wordsCounterNotifierActor")
+      val wordsCounterNotifierActor = context.system.actorOf(Props(new FileWriterActor("result.txt")), name = "wordsCounterNotifierActor")
       wordsCounterNotifierActor ! wordCount
     }
   }

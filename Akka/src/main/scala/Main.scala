@@ -6,12 +6,20 @@ import akka.actor._
 
 
 
-object Main extends App {
-  val system = ActorSystem("HelloSystem")
+object Main {
+  def main(args: Array[String]) = {
+    if (args.length == 0) {
+      println("Missing fileName argument")
+      System.exit(-1)
+    }
 
-  val urlReaderActor = system.actorOf(Props[UrlReaderActor], name = "urlReaderActor")
+    val fileName = args(0)
+    println("FileName = " + args(0))
 
-  urlReaderActor ! "http://www.csd.uwo.ca/~magi/personal/humour/Computer_Audience/Computer%20Limericks.html"
+    val system = ActorSystem("HelloSystem")
+    val urlReaderActor = system.actorOf(Props[FileReaderActor], name = "urlReaderActor")
+    urlReaderActor ! fileName
+  }
 }
 
 

@@ -5,15 +5,13 @@ import akka.actor.Actor
 /**
   * Created by Nadler on 3/12/2016.
   */
-class WordsCounterNotifierActor(fileName : String) extends Actor {
+class FileWriterActor(fileName : String) extends Actor {
 
   def receive = {
-    case count: Long => {
-      writeToFile(fileName, count.toString)
-    }
+    case count: Long => writeToFile(fileName, count.toString)
   }
 
-  def writeToFile(fileName: String, text: String) = {
+  private def writeToFile(fileName: String, text: String) = {
     var writer: Writer = null
 
     try {
