@@ -4,10 +4,10 @@ import akka.actor._
   * Created by Nadler on 3/12/2016.
   */
 object Main {
-  def main(args: Array[String]) = {
+  def main(args: Array[String]):Unit = {
     if (args.length == 0) {
       println("Missing fileName argument")
-      System.exit(-1)
+      sys.exit(0)
     }
 
     val fileName = args(0)

@@ -1,3 +1,5 @@
+assemblyJarName in assembly := "MyAkka.jar"
+
 name := "Akka"
 
 version := "1.0"

@@ -10,10 +10,10 @@ import scala.concurrent.duration._
 /**
   * Created by Nadler on 3/11/2016.
   */
-object Main {
-  def main(args: Array[String]) {
-    val host = "localhost";
-    val port = 8080;
+object Main{
+  def main(args: Array[String]): Unit = {
+    val host = "127.0.0.1";
+    val port = 8081;
 
     // we need an ActorSystem to host our application in
     implicit val system = ActorSystem("MyFirstHttpServer")
